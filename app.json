@@ -25,6 +25,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "db01e7ea-947e-4374-941d-da738a458665"
+      }
+    },
+    "owner": "hanhdev"
   }
 }
