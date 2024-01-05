@@ -1,25 +1,15 @@
 import React from 'react'
-import {StyleSheet, View, Text, SafeAreaView } from 'react-native'
+
+import { NavigationContainer } from '@react-navigation/native'
+import Tabs from './src/components/Tabs'
+
 
 const App = () => {
-  return (
-    <SafeAreaView style={styles.wrapper}>
-      <View style={styles.container}>
-        <Text>Hello</Text>
-      </View>
-    </SafeAreaView>
-  )
+    return (
+        <NavigationContainer>
+            <Tabs />
+        </NavigationContainer>
+    )
 }
-
-const styles = StyleSheet.create({
-  wrapper: {
-    flex: 1
-  },
-  container: {
-    backgroundColor: 'pink',
-    flex: 1,
-    justifyContent: 'center',
-  }
-})
 
 export default App
