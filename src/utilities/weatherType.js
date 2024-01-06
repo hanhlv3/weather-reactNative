@@ -19,9 +19,11 @@ export const weatherType = {
         message: 'Lets build a snowam',
         backgroundColor: '#7f6065'
     },
-    Clear: {   icon: 'sun',
-    message: 'It is perfect t-shirt weather',
-    backgroundColor: '#e47200'},
+    Clear: {   
+        icon: 'sun',
+        message: 'It is perfect t-shirt weather',
+        backgroundColor: '#e47200'
+    },
     Clouds: {
         icon: 'cloud',
         message: 'You could live in the clouds',

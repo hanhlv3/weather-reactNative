@@ -1,19 +1,16 @@
 import React from 'react'
-import Ionicons from 'react-native-vector-icons/Ionicons'
 
 import CurrentWeather from '../screens/CurrentWeather'
 import UpcomingWeather from '../screens/UpcomingWeather'
 import City from '../screens/City'
 
-import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
 import { Feather } from '@expo/vector-icons'
 
-
 const Tab = createBottomTabNavigator()
 
-const Tabs = () => {
+const Tabs = ({ weather }) => {
     return (
         <Tab.Navigator
             screenOptions={({ route }) => ({
@@ -27,15 +24,13 @@ const Tabs = () => {
                 },
                 headerTitleStyle: {
                     fontWeight: 'bold',
-                    fontSize: 25, 
+                    fontSize: 25,
                     color: 'tomato'
                 }
-
             })}
         >
             <Tab.Screen
                 name={'Current'}
-                component={CurrentWeather}
                 options={{
                     tabBarIcon: ({ focused }) => (
                         <Feather
@@ -45,10 +40,11 @@ const Tabs = () => {
                         />
                     )
                 }}
-            />
+            >
+                {() => <CurrentWeather  weatherData={weather.list[0]} />}
+            </Tab.Screen>
             <Tab.Screen
                 name={'Upcoming'}
-                component={UpcomingWeather}
                 options={{
                     tabBarIcon: ({ focused }) => (
                         <Feather
@@ -58,10 +54,11 @@ const Tabs = () => {
                         />
                     )
                 }}
-            />
+            >
+                {() =>  <UpcomingWeather weatherData={weather} /> }
+            </Tab.Screen>
             <Tab.Screen
                 name={'City'}
-                component={City}
                 options={{
                     tabBarIcon: ({ focused }) => (
                         <Feather
@@ -71,7 +68,9 @@ const Tabs = () => {
                         />
                     )
                 }}
-            />
+            >
+                {() => <City weatherData={weather} />}
+            </Tab.Screen>
         </Tab.Navigator>
     )
 }
